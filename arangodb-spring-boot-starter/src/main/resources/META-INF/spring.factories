@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=io.github.ganchix.morphia.configuration.ArangoAutoConfiguration,\
+io.github.ganchix.morphia.configuration.ArangoRepositoriesAutoConfiguration
