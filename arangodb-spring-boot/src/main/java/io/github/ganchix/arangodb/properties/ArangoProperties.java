@@ -2,6 +2,7 @@ package io.github.ganchix.arangodb.properties;
 
 import com.arangodb.Protocol;
 import com.arangodb.entity.LoadBalancingStrategy;
+import com.arangodb.internal.ArangoDBConstants;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 import java.util.List;
@@ -9,24 +10,22 @@ import java.util.List;
 /**
  * Created by Rafael Ríos on 8/04/18.
  */
-
 @ConfigurationProperties(prefix = "spring.data.arangodb")
 public class ArangoProperties {
 
-
     private List<String> hosts;
-    private String host = "localhost";
-    private Integer port = 8529;
-    private Integer timeout = 0;
-    private String user;
+    private String host = ArangoDBConstants.DEFAULT_HOST;
+    private Integer port = ArangoDBConstants.DEFAULT_PORT;
+    private Integer timeout = ArangoDBConstants.DEFAULT_TIMEOUT;
+    private String user = ArangoDBConstants.DEFAULT_USER;
     private String password;
-    private Boolean useSsl;
+    private Boolean useSsl = ArangoDBConstants.DEFAULT_USE_SSL;
     private Integer chunksize;
     private Integer maxConnections;
     private String databaseName;
-    private Boolean acquireHost;
-    private Protocol protocol = Protocol.VST;
-    private LoadBalancingStrategy loadBalancingStrategy = LoadBalancingStrategy.NONE;
+    private Boolean acquireHost = ArangoDBConstants.DEFAULT_ACQUIRE_HOST_LIST;
+    private Protocol protocol = ArangoDBConstants.DEFAULT_NETWORK_PROTOCOL;
+    private LoadBalancingStrategy loadBalancingStrategy = ArangoDBConstants.DEFAULT_LOAD_BALANCING_STRATEGY;
 
 
     public String getPassword() {
