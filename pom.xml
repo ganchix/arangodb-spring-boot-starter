@@ -37,7 +37,7 @@
 
     <properties>
         <java.version>1.8</java.version>
-        <spring.boot.version>1.5.3.RELEASE</spring.boot.version>
+        <spring.boot.version>2.0.1.RELEASE</spring.boot.version>
         <arangodb-spring-data.version>2.0.3</arangodb-spring-data.version>
     </properties>
 

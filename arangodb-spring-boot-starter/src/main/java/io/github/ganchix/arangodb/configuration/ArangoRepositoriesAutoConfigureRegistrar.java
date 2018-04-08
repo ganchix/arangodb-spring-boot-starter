@@ -1,4 +1,4 @@
-package io.github.ganchix.morphia.configuration;
+package io.github.ganchix.arangodb.configuration;
 
 import com.arangodb.springframework.annotation.EnableArangoRepositories;
 import com.arangodb.springframework.repository.ArangoRepositoryConfigurationExtension;
@@ -8,6 +8,8 @@ import org.springframework.data.repository.config.RepositoryConfigurationExtensi
 import java.lang.annotation.Annotation;
 
 /**
+ * Used to auto-configure Spring Data ArangoDB Repositories.
+ *
  * Created by Rafael Ríos on 8/04/18.
  */
 public class ArangoRepositoriesAutoConfigureRegistrar extends AbstractRepositoryConfigurationSourceSupport {
