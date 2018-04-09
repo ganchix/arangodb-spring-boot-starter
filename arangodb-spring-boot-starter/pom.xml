@@ -16,30 +16,8 @@
     <dependencies>
         <dependency>
             <groupId>io.github.ganchix</groupId>
-            <artifactId>arangodb-spring-boot</artifactId>
+            <artifactId>arangodb-spring-boot-autoconfigure</artifactId>
             <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-autoconfigure</artifactId>
-            <version>${spring.boot.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.arangodb</groupId>
-            <artifactId>arangodb-spring-data</artifactId>
-            <version>${arangodb-spring-data.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot</artifactId>
-            <version>${spring.boot.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot</artifactId>
-            <version>1.5.3.RELEASE</version>
-            <scope>compile</scope>
         </dependency>
     </dependencies>
 

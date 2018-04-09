@@ -10,7 +10,7 @@
     <name>arangodb-spring-boot-parent</name>
     <description>Spring boot starter using for arangodb integration.</description>
     <url>https://github.com/ganchix/arangodb-spring-boot-starter</url>
-    
+
     <licenses>
         <license>
             <name>MIT License</name>
@@ -43,7 +43,7 @@
 
 
     <modules>
-        <module>arangodb-spring-boot</module>
+        <module>arangodb-spring-boot-autoconfigure</module>
         <module>arangodb-spring-boot-starter</module>
 
     </modules>
