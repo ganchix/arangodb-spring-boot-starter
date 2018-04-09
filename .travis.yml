@@ -18,7 +18,7 @@ deploy:
   script: .travis/deploy.sh
   skip_cleanup: true
   on:
-    repo: ganchix/morphia-spring-boot-starter
+    repo: ganchix/arangodb-spring-boot-starter
     branch: master
     jdk: oraclejdk8
 -
@@ -26,7 +26,7 @@ deploy:
   script: .travis/deploy.sh
   skip_cleanup: true
   on:
-    repo: ganchix/morphia-spring-boot-starter
+    repo: ganchix/arangodb-spring-boot-starter
     tags: true
     jdk: oraclejdk8
 
