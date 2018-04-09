@@ -3,9 +3,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>arangodb-spring-boot</artifactId>
+    <artifactId>arangodb-spring-boot-autoconfigure</artifactId>
     <packaging>jar</packaging>
-    <name>arangodb-spring-boot</name>
+    <name>arangodb-spring-boot-autoconfigure</name>
     <description>Spring boot starter using for ArangoDB integration.</description>
 
 
@@ -29,6 +29,12 @@
             <groupId>com.arangodb</groupId>
             <artifactId>arangodb-spring-data</artifactId>
             <version>${arangodb-spring-data.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+            <version>${spring.boot.version}</version>
         </dependency>
     </dependencies>
 
