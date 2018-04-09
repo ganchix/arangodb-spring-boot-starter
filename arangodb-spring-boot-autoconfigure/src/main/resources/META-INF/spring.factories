@@ -1,2 +1,2 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=io.github.ganchix.arangodb.io.github.ganchix.arangodb.configuration.ArangoAutoConfiguration,\
-io.github.ganchix.arangodb.io.github.ganchix.arangodb.configuration.ArangoRepositoriesAutoConfiguration
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=io.github.ganchix.arangodb.configuration.ArangoAutoConfiguration,\
+io.github.ganchix.arangodb.configuration.ArangoRepositoriesAutoConfiguration
