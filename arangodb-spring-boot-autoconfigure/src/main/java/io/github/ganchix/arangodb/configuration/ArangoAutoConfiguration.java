@@ -60,7 +60,7 @@ public class ArangoAutoConfiguration {
                 .timeout(properties.getTimeout())
                 .useSsl(properties.getUseSsl())
                 .host(properties.getHost(), properties.getPort())
-                .acquireHostList(properties.getAcquireHost())
+                .acquireHostList(properties.getAcquireHostList())
                 .loadBalancingStrategy(properties.getLoadBalancingStrategy())
                 .useProtocol(properties.getProtocol());
 
@@ -80,12 +80,6 @@ public class ArangoAutoConfiguration {
         return arangoBuilder;
     }
 
-    @Bean
-    @ConditionalOnMissingBean
-    public String database() {
-        return properties.getDatabaseName();
-    }
-
 
     private ArangoDB.Builder configure(final ArangoDB.Builder arangoBuilder) {
         return arangoBuilder.registerModules(new VPackJdk8Module(), new VPackJodaModule());
@@ -94,7 +88,7 @@ public class ArangoAutoConfiguration {
     @Bean
     @ConditionalOnMissingBean
     public ArangoOperations arangoTemplate(ArangoDB.Builder arangoBuilder) throws Exception {
-        this.arangoOperations = new ArangoTemplate(configure(arangoBuilder), database(), arangoConverter(arangoBuilder));
+        this.arangoOperations = new ArangoTemplate(configure(arangoBuilder), properties.getDatabaseName(), arangoConverter(arangoBuilder));
         return arangoOperations;
     }
 

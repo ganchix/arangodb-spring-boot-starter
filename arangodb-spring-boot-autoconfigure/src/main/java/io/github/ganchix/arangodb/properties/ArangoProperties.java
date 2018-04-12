@@ -23,7 +23,7 @@ public class ArangoProperties {
     private Integer chunksize;
     private Integer maxConnections;
     private String databaseName;
-    private Boolean acquireHost = ArangoDBConstants.DEFAULT_ACQUIRE_HOST_LIST;
+    private Boolean acquireHostList = ArangoDBConstants.DEFAULT_ACQUIRE_HOST_LIST;
     private Protocol protocol = ArangoDBConstants.DEFAULT_NETWORK_PROTOCOL;
     private LoadBalancingStrategy loadBalancingStrategy = ArangoDBConstants.DEFAULT_LOAD_BALANCING_STRATEGY;
 
@@ -108,12 +108,12 @@ public class ArangoProperties {
         this.port = port;
     }
 
-    public Boolean getAcquireHost() {
-        return acquireHost;
+    public Boolean getAcquireHostList() {
+        return acquireHostList;
     }
 
-    public void setAcquireHost(Boolean acquireHost) {
-        this.acquireHost = acquireHost;
+    public void setAcquireHostList(Boolean acquireHostList) {
+        this.acquireHostList = acquireHostList;
     }
 
     public Protocol getProtocol() {
