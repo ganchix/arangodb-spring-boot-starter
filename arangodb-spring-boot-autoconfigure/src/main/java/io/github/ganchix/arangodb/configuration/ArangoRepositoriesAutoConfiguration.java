@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
 /**
- * {@link EnableAutoConfiguration Auto-io.github.ganchix.arangodb.configuration} for Spring Data's ArangoDB
+ * {@link EnableAutoConfiguration Autoconfiguration} for Spring Data's ArangoDB
  * Repositories.
  * <p>
  * Created by Rafael Ríos on 8/04/18.
