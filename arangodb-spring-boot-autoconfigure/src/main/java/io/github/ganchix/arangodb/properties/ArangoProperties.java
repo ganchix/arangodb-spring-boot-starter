@@ -8,23 +8,76 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import java.util.List;
 
 /**
+ * ArangoDB Properties.
+ *
  * Created by Rafael Ríos on 8/04/18.
  */
 @ConfigurationProperties(prefix = "spring.data.arangodb")
 public class ArangoProperties {
 
+    /**
+     * Hosts list with format ip:port,ip:port
+     */
     private List<String> hosts;
+
+    /**
+     * ArangoDB host, {@link ArangoDBConstants default value}
+     */
     private String host = ArangoDBConstants.DEFAULT_HOST;
+
+    /**
+     * ArangoDB port, {@link ArangoDBConstants default value}
+     */
     private Integer port = ArangoDBConstants.DEFAULT_PORT;
+
+    /**
+     * Socket connect timeout(millisecond), {@link ArangoDBConstants default value}
+     */
     private Integer timeout = ArangoDBConstants.DEFAULT_TIMEOUT;
+
+    /**
+     * Basic Authentication User, {@link ArangoDBConstants default value}
+     */
     private String user = ArangoDBConstants.DEFAULT_USER;
+
+    /**
+     * Basic Authentication Password
+     */
     private String password;
+
+    /**
+     * Use SSL connection, {@link ArangoDBConstants default value}
+     */
     private Boolean useSsl = ArangoDBConstants.DEFAULT_USE_SSL;
+
+    /**
+     * Chunk size used
+     */
     private Integer chunksize;
+
+    /**
+     * Max connections value
+     */
     private Integer maxConnections;
+
+    /**
+     * Database name
+     */
     private String databaseName;
-    private Boolean acquireHost = ArangoDBConstants.DEFAULT_ACQUIRE_HOST_LIST;
+
+    /**
+     * Use acquire host list
+     */
+    private Boolean acquireHostList = ArangoDBConstants.DEFAULT_ACQUIRE_HOST_LIST;
+
+    /**
+     * Protocol used, {@link ArangoDBConstants default value}
+     */
     private Protocol protocol = ArangoDBConstants.DEFAULT_NETWORK_PROTOCOL;
+
+    /**
+     * Load balancing strategy used, {@link ArangoDBConstants default value}
+     */
     private LoadBalancingStrategy loadBalancingStrategy = ArangoDBConstants.DEFAULT_LOAD_BALANCING_STRATEGY;
 
 
@@ -108,12 +161,12 @@ public class ArangoProperties {
         this.port = port;
     }
 
-    public Boolean getAcquireHost() {
-        return acquireHost;
+    public Boolean getAcquireHostList() {
+        return acquireHostList;
     }
 
-    public void setAcquireHost(Boolean acquireHost) {
-        this.acquireHost = acquireHost;
+    public void setAcquireHostList(Boolean acquireHostList) {
+        this.acquireHostList = acquireHostList;
     }
 
     public Protocol getProtocol() {

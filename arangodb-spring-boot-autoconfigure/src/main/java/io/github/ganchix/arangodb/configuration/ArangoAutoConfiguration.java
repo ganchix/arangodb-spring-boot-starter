@@ -27,6 +27,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.convert.CustomConversions;
 import org.springframework.data.mapping.model.FieldNamingStrategy;
 import org.springframework.data.mapping.model.PropertyNameFieldNamingStrategy;
+import org.springframework.util.StringUtils;
 
 import javax.annotation.PreDestroy;
 import java.lang.annotation.Annotation;
@@ -52,6 +53,11 @@ public class ArangoAutoConfiguration {
     @Bean
     @ConditionalOnMissingBean
     public ArangoDB.Builder arangoBuilder() {
+        if (StringUtils.isEmpty(properties.getDatabaseName())) {
+            throw new ArangoDBException("Database name empty");
+
+        }
+
         ArangoDB.Builder arangoBuilder = new ArangoDB.Builder()
                 .user(properties.getUser())
                 .password(properties.getPassword())
@@ -60,13 +66,16 @@ public class ArangoAutoConfiguration {
                 .timeout(properties.getTimeout())
                 .useSsl(properties.getUseSsl())
                 .host(properties.getHost(), properties.getPort())
-                .acquireHostList(properties.getAcquireHost())
+                .acquireHostList(properties.getAcquireHostList())
                 .loadBalancingStrategy(properties.getLoadBalancingStrategy())
                 .useProtocol(properties.getProtocol());
 
+
         if (properties.getHosts() != null && properties.getHosts().size() > 0) {
-            for (final String host : properties.getHosts()) {
-                final String[] split = host.split(":");
+
+            properties.getHosts().forEach(host -> {
+
+                String[] split = host.split(":");
                 if (split.length != 2 || !split[1].matches("[0-9]+")) {
                     throw new ArangoDBException(String.format(
                             "Could not load property-value spring.data.arangodb.hosts=%s. Expected format ip:port,ip:port,...",
@@ -74,16 +83,11 @@ public class ArangoAutoConfiguration {
                 } else {
                     arangoBuilder.host(split[0], Integer.valueOf(split[1]));
                 }
-            }
+
+            });
 
         }
         return arangoBuilder;
-    }
-
-    @Bean
-    @ConditionalOnMissingBean
-    public String database() {
-        return properties.getDatabaseName();
     }
 
 
@@ -94,7 +98,7 @@ public class ArangoAutoConfiguration {
     @Bean
     @ConditionalOnMissingBean
     public ArangoOperations arangoTemplate(ArangoDB.Builder arangoBuilder) throws Exception {
-        this.arangoOperations = new ArangoTemplate(configure(arangoBuilder), database(), arangoConverter(arangoBuilder));
+        this.arangoOperations = new ArangoTemplate(configure(arangoBuilder), properties.getDatabaseName(), arangoConverter(arangoBuilder));
         return arangoOperations;
     }
 
@@ -164,11 +168,6 @@ public class ArangoAutoConfiguration {
         });
     }
 
-    @Bean
-    @ConditionalOnMissingBean
-    ArangoHealthCheck arango(ArangoOperations arangoOperations) {
-        return new ArangoHealthCheck(arangoOperations);
-    }
 
     @PreDestroy
     void destroy() {
@@ -177,5 +176,12 @@ public class ArangoAutoConfiguration {
         }
 
     }
+
+    @Bean
+    @ConditionalOnMissingBean
+    ArangoHealthCheck arango(ArangoOperations arangoOperations) {
+        return new ArangoHealthCheck(arangoOperations);
+    }
+
 }
 
