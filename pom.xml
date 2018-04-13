@@ -5,7 +5,7 @@
 
     <groupId>io.github.ganchix</groupId>
     <artifactId>arangodb-spring-boot-parent</artifactId>
-    <version>1.0.2-SNAPSHOT</version>
+    <version>1.0.3-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>arangodb-spring-boot-parent</name>
     <description>Spring boot starter using for arangodb integration.</description>
