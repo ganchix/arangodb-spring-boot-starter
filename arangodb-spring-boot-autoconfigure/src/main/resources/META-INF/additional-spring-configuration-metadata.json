@@ -1,0 +1,11 @@
+{
+  "hints": [],
+  "groups": [],
+  "properties": [
+    {
+      "name": "spring.data.arangodb.repositories.enabled",
+      "description": "Enable autoconfigure repositories, true default value.",
+      "type": "java.lang.Boolean"
+    }
+  ]
+}
