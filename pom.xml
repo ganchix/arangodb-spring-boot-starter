@@ -39,6 +39,7 @@
         <java.version>1.8</java.version>
         <spring.boot.version>1.5.10.RELEASE</spring.boot.version>
         <arangodb-spring-data.version>2.0.3</arangodb-spring-data.version>
+        <lombok.version>1.16.12</lombok.version>
     </properties>
 
 
