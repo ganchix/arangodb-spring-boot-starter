@@ -53,11 +53,6 @@ public class ArangoAutoConfiguration {
     @Bean
     @ConditionalOnMissingBean
     public ArangoDB.Builder arangoBuilder() {
-        if (StringUtils.isEmpty(properties.getDatabaseName())) {
-            throw new ArangoDBException("Database name empty");
-
-        }
-
         ArangoDB.Builder arangoBuilder = new ArangoDB.Builder()
                 .user(properties.getUser())
                 .password(properties.getPassword())

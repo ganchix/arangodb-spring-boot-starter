@@ -65,9 +65,9 @@ public class ArangoProperties {
     private Integer maxConnections;
 
     /**
-     * Database name
+     * Database name, _system default value
      */
-    private String databaseName;
+    private String databaseName = "_system";
 
     /**
      * Use acquire host list
