@@ -1,0 +1,12 @@
+{
+  "hints": [],
+  "groups": [],
+  "properties": [
+    {
+      "sourceType": "io.github.ganchix.arangodb.configuration.ArangoRepositoriesAutoConfiguration",
+      "name": "spring.data.arangodb.repositories.enabled",
+      "description": "Enable autoconfigure repositories, true default value.",
+      "type": "java.lang.Boolean"
+    }
+  ]
+}
