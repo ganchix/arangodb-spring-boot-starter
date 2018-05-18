@@ -7,6 +7,10 @@ script: "mvn clean cobertura:cobertura"
 after_success:
   - bash <(curl -s https://codecov.io/bash)
 
+sudo: required
+services:
+  - docker
+
 install:
   - mvn --settings .travis/settings.xml install -DskipTests=true -Dgpg.skip -Dmaven.javadoc.skip=true -B -V
 before_install:

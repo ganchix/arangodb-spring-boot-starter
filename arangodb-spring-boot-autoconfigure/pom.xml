@@ -7,6 +7,10 @@
     <name>arangodb-spring-boot-autoconfigure</name>
     <description>Spring boot starter using for ArangoDB integration.</description>
 
+    <properties>
+        <testcontainers-java-module-arangodb.version>0.0.1</testcontainers-java-module-arangodb.version>
+    </properties>
+
     <parent>
         <groupId>io.github.ganchix</groupId>
         <artifactId>arangodb-spring-boot-parent</artifactId>
@@ -39,6 +43,13 @@
             <artifactId>lombok</artifactId>
             <version>${lombok.version}</version>
         </dependency>
+        <dependency>
+            <groupId>io.github.ganchix</groupId>
+            <artifactId>testcontainers-java-module-arangodb</artifactId>
+            <version>${testcontainers-java-module-arangodb.version}</version>
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
 
 </project>
