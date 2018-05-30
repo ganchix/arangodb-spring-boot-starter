@@ -32,7 +32,7 @@ public class ArangoHealthCheck extends AbstractHealthIndicator {
         boolean exists = arangoOperations.driver().db().exists();
         builder.withDetail("exists", exists);
         if (exists) {
-            ArangoDBVersion version = arangoOperations.getVersion();
+            ArangoDBVersion version = arangoOperations.driver().getVersion();
             builder.up();
             builder.withDetail("server", version.getServer());
             builder.withDetail("version", version.getVersion());
